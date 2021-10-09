@@ -1,0 +1,35 @@
+{
+  "name": "imfeelingluckynft",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@walletconnect/client": "^1.6.5",
+    "@walletconnect/qrcode-modal": "^1.6.5",
+    "@walletconnect/web3-provider": "^1.6.5",
+    "add": "^2.0.6",
+    "graphql": "^15.6.1",
+    "graphql-request": "^3.5.0",
+    "next": "11.1.2",
+    "opensea-js": "^1.2.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-spinners": "^0.11.0",
+    "styled-components": "^5.3.1",
+    "styled-reset": "^4.3.4",
+    "web3": "^1.5.2",
+    "web3modal": "^1.9.4"
+  },
+  "devDependencies": {
+    "@types/react": "17.0.22",
+    "babel-plugin-styled-components": "^1.13.2",
+    "eslint": "7.32.0",
+    "eslint-config-next": "11.1.2",
+    "typescript": "4.4.3"
+  }
+}
