@@ -2,9 +2,15 @@ import * as Styled from './styled';
 
 const values = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '.', '<'];
 
-const PriceInput = ({ value, onChange }) => {
-  const onInput = (input) => {
-    let newValue = '';
+const PriceInput = ({
+  value,
+  onChange,
+}: {
+  value: string | number;
+  onChange: (newValue: string | number) => void;
+}) => {
+  const onInput = (input: string): void => {
+    let newValue: any = '';
     const currentValue = value.toString();
     console.log(input, currentValue);
     if (input === '<') {

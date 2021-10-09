@@ -1,11 +1,17 @@
-import { useRef } from 'react';
+import { useRef, ReactChild, ReactChildren, MouseEvent } from 'react';
 
 import * as Styled from './styled';
 
-const Modal = ({ children, close }) => {
+const Modal = ({
+  children,
+  close,
+}: {
+  children: ReactChildren | ReactChild;
+  close?: () => void;
+}) => {
   const modalRef = useRef(null);
 
-  const handleOutsideClick = (e) => {
+  const handleOutsideClick = (e: MouseEvent) => {
     if (e.target === modalRef.current) {
       if (close) {
         close();

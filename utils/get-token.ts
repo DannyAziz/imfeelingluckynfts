@@ -2,7 +2,7 @@ import { GraphQLClient } from 'graphql-request';
 import { AssetSearchQuery } from './queries';
 
 import WalletConnectProvider from '@walletconnect/web3-provider';
-import { OpenSeaPort, Network, OrderSide } from 'opensea-js';
+import { OpenSeaPort, Network } from 'opensea-js';
 
 // const NETWORK = 'MAIN';
 const NETWORK = 'RINKEBY';
@@ -21,9 +21,7 @@ const seaport = new OpenSeaPort(provider, {
   networkName: Network.Rinkeby,
 });
 
-// TODO: Types
-
-function getRandomArbitrary(min, max) {
+function getRandomArbitrary(min: number, max: number) {
   return Math.ceil(Math.random() * (max - min) + min);
 }
 

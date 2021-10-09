@@ -62,6 +62,7 @@ const Home: NextPage = () => {
 
   useEffect(() => {
     (async () => {
+      // @ts-ignore
       if (provider.connector._connected) {
         const res = await provider.enable();
         setConnected(true);
@@ -73,8 +74,7 @@ const Home: NextPage = () => {
       console.log(code, reason);
       setConnected(false);
     });
-    provider.on('connect', (e) => {
-      console.log(e);
+    provider.on('connect', () => {
       setConnected(true);
     });
 
@@ -165,13 +165,15 @@ const Home: NextPage = () => {
       <Container>
         {loading && (
           <Modal>
-            <Styled.Center>
-              <ClipLoader
-                // color={color}
-                loading
-                size={150}
-              />
-            </Styled.Center>
+            <>
+              <Styled.Center>
+                <ClipLoader
+                  // color={color}
+                  loading
+                  size={150}
+                />
+              </Styled.Center>
+            </>
           </Modal>
         )}
         {!connected && (
@@ -200,40 +202,44 @@ const Home: NextPage = () => {
           <>
             {acceptPurchaseModalOpen && (
               <Modal>
-                <Styled.Title>Accept Purchase On Your Wallet</Styled.Title>
-                <Styled.Center>
-                  <ClipLoader
-                    // color={color}
-                    loading
-                    size={150}
-                  />
-                </Styled.Center>
+                <>
+                  <Styled.Title>Accept Purchase On Your Wallet</Styled.Title>
+                  <Styled.Center>
+                    <ClipLoader
+                      // color={color}
+                      loading
+                      size={150}
+                    />
+                  </Styled.Center>
+                </>
               </Modal>
             )}
             {purchaseCompleteModalOpen && (
               <Modal close={closePurchaseCompleteModal}>
-                <Styled.Title>Congrats 🥳</Styled.Title>
-                <Styled.Img src={token?.imageUrl} />
-                <p>
-                  <Styled.Link
-                    href={`https://${
-                      NETWORK === 'RINKEBY' ? 'rinkeby' : 'www'
-                    }.etherscan.io/tx/${transactionHash}`}
-                  >
-                    Transaction Hash
-                  </Styled.Link>
-                </p>
-                <p>
-                  <Styled.Link
-                    href={`https://${
-                      NETWORK === 'RINKEBY' ? 'testnets' : 'www'
-                    }.opensea.io/assets/${token.assetContract.address}/${
-                      token.tokenId
-                    }`}
-                  >
-                    View on OpenSea
-                  </Styled.Link>
-                </p>
+                <>
+                  <Styled.Title>Congrats 🥳</Styled.Title>
+                  <Styled.Img src={token?.imageUrl} />
+                  <p>
+                    <Styled.Link
+                      href={`https://${
+                        NETWORK === 'RINKEBY' ? 'rinkeby' : 'www'
+                      }.etherscan.io/tx/${transactionHash}`}
+                    >
+                      Transaction Hash
+                    </Styled.Link>
+                  </p>
+                  <p>
+                    <Styled.Link
+                      href={`https://${
+                        NETWORK === 'RINKEBY' ? 'testnets' : 'www'
+                      }.opensea.io/assets/${token.assetContract.address}/${
+                        token.tokenId
+                      }`}
+                    >
+                      View on OpenSea
+                    </Styled.Link>
+                  </p>
+                </>
               </Modal>
             )}
 
