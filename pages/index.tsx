@@ -11,7 +11,7 @@ import Button from 'components/Button';
 import PriceInput from 'components/PriceInput';
 import Modal from 'components/Modal';
 
-import * as Styled from './styled';
+import * as Styled from '../styled';
 
 import * as Web3 from 'web3';
 import { OpenSeaPort, Network, EventType } from 'opensea-js';
