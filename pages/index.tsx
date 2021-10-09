@@ -219,8 +219,9 @@ const Home: NextPage = () => {
                   <p>
                     <Styled.Link
                       href={`https://${
-                        NETWORK === 'RINKEBY' ? 'rinkeby' : 'www'
+                        NETWORK === 'Rinkeby' ? 'rinkeby' : 'www'
                       }.etherscan.io/tx/${transactionHash}`}
+                      target="_blank"
                     >
                       Transaction Hash
                     </Styled.Link>
@@ -228,10 +229,11 @@ const Home: NextPage = () => {
                   <p>
                     <Styled.Link
                       href={`https://${
-                        NETWORK === 'RINKEBY' ? 'testnets' : 'www'
+                        NETWORK === 'Rinkeby' ? 'testnets' : 'www'
                       }.opensea.io/assets/${token.assetContract.address}/${
                         token.tokenId
                       }`}
+                      target="_blank"
                     >
                       View on OpenSea
                     </Styled.Link>
