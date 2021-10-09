@@ -4,21 +4,20 @@ import { AssetSearchQuery } from './queries';
 import WalletConnectProvider from '@walletconnect/web3-provider';
 import { OpenSeaPort, Network } from 'opensea-js';
 
-// const NETWORK = 'MAIN';
-const NETWORK = 'RINKEBY';
+const NETWORK = process.env.NODE_ENV === 'production' ? 'Main' : 'Rinkeby';
 
-const chainId = NETWORK === 'RINKEBY' ? 4 : 1;
+const chainId = NETWORK === 'Rinkeby' ? 4 : 1;
 
 const provider = new WalletConnectProvider({
   chainId,
-  infuraId: 'process.env.NEXT_PUBLIC_INFURA',
+  infuraId: process.env.NEXT_PUBLIC_INFURA,
   qrcodeModalOptions: {
     mobileLinks: ['rainbow', 'metamask'],
   },
 });
 
 const seaport = new OpenSeaPort(provider, {
-  networkName: Network.Rinkeby,
+  networkName: Network[NETWORK],
 });
 
 function getRandomArbitrary(min: number, max: number) {
@@ -49,7 +48,7 @@ const openSeaQuery = async (cursor?: string, price?: number) => {
 
   const variables = {
     categories: null,
-    chains: [NETWORK === 'RINKEBY' ? NETWORK : 'ETHEREUM'],
+    chains: [NETWORK === 'Rinkeby' ? NETWORK : 'ETHEREUM'],
     collection: null,
     collectionQuery: null,
     collectionSortBy: 'SEVEN_DAY_VOLUME',
@@ -77,7 +76,7 @@ const openSeaQuery = async (cursor?: string, price?: number) => {
 
   const graphQLClient = new GraphQLClient(
     `https://${
-      NETWORK === 'RINKEBY' ? 'testnets-api' : 'api'
+      NETWORK === 'Rinkeby' ? 'testnets-api' : 'api'
     }.opensea.io/graphql/`
   );
 

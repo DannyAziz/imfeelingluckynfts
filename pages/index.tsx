@@ -19,26 +19,23 @@ import WalletConnectProvider from '@walletconnect/web3-provider';
 
 import getToken from '../utils/get-token';
 
-// TODO: Types
-
 // TODO: Use web3modal
 
-// const NETWORK = 'MAIN';
-const NETWORK = 'RINKEBY';
+const NETWORK = process.env.NODE_ENV === 'production' ? 'Main' : 'Rinkeby';
 
-const chainId = NETWORK === 'RINKEBY' ? 4 : 1;
+const chainId = NETWORK === 'Rinkeby' ? 4 : 1;
 
 //  Create WalletConnect Provider
 const provider = new WalletConnectProvider({
   chainId,
-  infuraId: 'process.env.NEXT_PUBLIC_INFURA',
+  infuraId: process.env.NEXT_PUBLIC_INFURA,
   qrcodeModalOptions: {
     mobileLinks: ['rainbow', 'metamask'],
   },
 });
 
 const seaport = new OpenSeaPort(provider, {
-  networkName: Network.Rinkeby,
+  networkName: Network[NETWORK],
 });
 
 const Home: NextPage = () => {
