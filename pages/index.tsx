@@ -6,6 +6,7 @@ import Image from 'next/image';
 import ClipLoader from 'react-spinners/ClipLoader';
 
 import Header from 'components/Header';
+import Footer from 'components/Footer';
 import Container from 'components/Container';
 import Button from 'components/Button';
 import PriceInput from 'components/PriceInput';
@@ -281,6 +282,7 @@ const Home: NextPage = () => {
           </p>
         )} */}
       </Container>
+      <Footer disconnect={connected ? disconnectWallet : null} />
     </div>
   );
 };
