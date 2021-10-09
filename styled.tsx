@@ -41,8 +41,13 @@ export const PriceValue = styled.p`
 
   color: #000000;
 
-  margin-top: 3rem;
-  margin-bottom: 3rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+
+  @media only screen and (min-width: 768px) {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
 `;
 
 export const Title = styled.h1`

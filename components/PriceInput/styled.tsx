@@ -4,9 +4,13 @@ export const PriceInput = styled.div`
   margin-top: 50px;
 
   display: grid;
-  grid-gap: 100px;
+  grid-gap: 75px;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
+
+  @media only screen and (min-width: 768px) {
+    grid-gap: 100px;
+  }
 `;
 
 export const PriceInputButton = styled.span`
